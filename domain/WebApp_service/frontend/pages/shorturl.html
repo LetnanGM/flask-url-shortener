@@ -1,0 +1,245 @@
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg-grid"></div>
+  <div class="container text-center hero-content">
+    <div class="hero-badge mb-3">
+      <i class="fa-solid fa-bolt"></i> Fast. Smart. Reliable.
+    </div>
+    <h1 class="hero-title">
+      Shorten Links.<br /><span class="gradient-text">Amplify Reach.</span>
+    </h1>
+    <p class="hero-sub">
+      Turn long, ugly URLs into clean, trackable short links in seconds.<br />Trusted
+      by <strong id="hero-users">1.000.000.000</strong> users worldwide.
+    </p>
+
+    <!-- SHORTENER BOX -->
+    <div class="shortener-box mx-auto mt-5" id="shortenerBox">
+      <div class="d-flex gap-2 align-items-stretch">
+        <input
+          type="url"
+          id="longUrl"
+          class="form-control snap-input flex-grow-1"
+          placeholder="Paste your long URL here…"
+        />
+        <button
+          class="btn btn-snap-primary px-4"
+          id="shortenBtn"
+          data-action="landModule#handleShorten"
+        >
+          <i class="fa-solid fa-scissors me-2"></i>Shorten
+        </button>
+      </div>
+      <div id="resultBox" class="result-box mt-3 d-none">
+        <div class="d-flex align-items-center gap-3">
+          <span class="result-label">Your link:</span>
+          <a
+            id="shortLinkDisplay"
+            href="#"
+            target="_blank"
+            class="short-link-result flex-grow-1"
+          ></a>
+          <button class="btn btn-copy" data-action="landModule#copyShortLink">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+          <a id="qrBtn" class="btn btn-qr" href="#"
+            ><i class="fa-solid fa-qrcode"></i
+          ></a>
+        </div>
+        <div class="mt-2 text-muted small">
+          Want to track clicks?
+          <a href="{{ register_url }}" class="accent-link"
+            >Create a free account</a
+          >
+        </div>
+      </div>
+      <div
+        id="errorBox"
+        class="alert alert-danger mt-3 d-none small py-2"
+      ></div>
+    </div>
+
+    <p class="hero-disclaimer mt-3">
+      No sign-up required for basic shortening.
+      <a href="{{ register_url }}" class="accent-link">Register</a> for
+      analytics & custom aliases.
+    </p>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0,60 C360,100 1080,0 1440,60 L1440,100 L0,100 Z"
+        fill="#0d0f1a"
+      />
+    </svg>
+  </div>
+</section>
+
+<!-- PUBLIC STATS -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <div class="section-tag">Platform Stats</div>
+    <h2 class="section-title text-center">
+      Real Numbers. <span class="gradient-text">Real Impact.</span>
+    </h2>
+    <p class="section-sub text-center">
+      Live platform statistics updated every minute.
+    </p>
+    <div class="row g-4 mt-3" id="statsGrid">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-link"></i></div>
+          <div
+            class="stat-number"
+            data-target="{{ all_links }}"
+            id="stat-links"
+          >
+            0
+          </div>
+          <div class="stat-label">Links Shortened</div>
+          <div class="stat-trend up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +12% this week
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-number" data-target="0" id="stat-users">0</div>
+          <div class="stat-label">Registered Users</div>
+          <div class="stat-trend up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +8% this week
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+          <div class="stat-number" data-target="0" id="stat-clicks">0</div>
+          <div class="stat-label">Total Clicks</div>
+          <div class="stat-trend up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +24% this week
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="stat-number" data-target="0" id="stat-countries">0</div>
+          <div class="stat-label">Countries Reached</div>
+          <div class="stat-trend up">
+            <i class="fa-solid fa-arrow-trend-up"></i> +5 this week
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live ticker -->
+    <div class="live-ticker mt-5">
+      <div class="ticker-label">
+        <i class="fa-solid fa-satellite-dish pulse-dot"></i> Live Activity
+      </div>
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-tag">Why SnapURL?</div>
+    <h2 class="section-title text-center">
+      Everything You Need.<br /><span class="gradient-text"
+        >Nothing You Don't.</span
+      >
+    </h2>
+    <div class="row g-4 mt-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h5>Lightning Fast</h5>
+          <p>
+            Links created in milliseconds. Redirects served globally via edge
+            network with <strong>&lt; 50ms</strong> latency.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card featured">
+          <div class="feature-badge">Most Popular</div>
+          <div class="feature-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h5>Deep Analytics</h5>
+          <p>
+            Track every click — device, browser, country, referrer. Visualize
+            traffic with beautiful real-time charts.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-fingerprint"></i>
+          </div>
+          <h5>Custom Aliases</h5>
+          <p>
+            Claim your brand. Use <code>snp.ly/your-brand</code> instead of
+            random characters. Available on free plan.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h5>Safe & Secure</h5>
+          <p>
+            All links scanned for malware. SSL on every redirect. GDPR-compliant
+            analytics with data residency options.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-qrcode"></i></div>
+          <h5>QR Codes</h5>
+          <p>
+            Every short link gets a free QR code. Download PNG/SVG. Dynamic QR
+            codes update without reprinting.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-plug"></i></div>
+          <h5>API Ready</h5>
+          <p>
+            Full REST API with Python, Node & PHP SDKs. Integrate SnapURL into
+            your apps in minutes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container text-center">
+    <h2 class="cta-title">Ready to snap your links?</h2>
+    <p class="cta-sub">
+      Join thousands of marketers, developers & creators. Free forever on the
+      starter plan.
+    </p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+      <a href="{{ register_url }}" class="btn btn-snap-primary btn-lg px-5">
+        <i class="fa-solid fa-rocket me-2"></i>Start for Free
+      </a>
+      <a href="{{ login_url }}" class="btn btn-snap-outline btn-lg px-5">
+        <i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Sign In
+      </a>
+    </div>
+  </div>
+</section>

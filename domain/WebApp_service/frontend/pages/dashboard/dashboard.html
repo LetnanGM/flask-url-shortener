@@ -1,0 +1,492 @@
+<!-- OVERLAY for mobile -->
+<div
+  class="sidebar-overlay d-lg-none d-none"
+  id="sidebarOverlay"
+  onclick="toggleSidebar()"
+></div>
+
+<!-- MAIN -->
+<div class="dash-main" id="dashMain">
+  <!-- TOP BAR -->
+  <div class="dash-topbar">
+    <button class="btn btn-icon d-lg-none me-3" onclick="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="topbar-title" id="pageTitle">Dashboard</div>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <div class="topbar-search d-none d-md-flex">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Search links…"
+          id="searchInput"
+          oninput="filterLinks(this.value)"
+        />
+      </div>
+      <button
+        class="btn btn-snap-primary btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#shortenModal"
+      >
+        <i class="fa-solid fa-plus me-1"></i> New Link
+      </button>
+      <div class="topbar-notif">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notif-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dash-content" id="dashContent">
+    <!-- ===== DASHBOARD SECTION ===== -->
+    <div id="section-dashboard">
+      <div class="content-header">
+        <h4 class="content-title">Overview</h4>
+        <span class="content-sub" id="welcomeMsg">Welcome back!</span>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="row g-4 mb-4" id="kpiRow">
+        <div class="col-6 col-xl-3">
+          <div class="kpi-card">
+            <div class="kpi-icon blue"><i class="fa-solid fa-link"></i></div>
+            <div class="kpi-body">
+              <div class="kpi-num" id="kpi-links">0</div>
+              <div class="kpi-label">Total Links</div>
+              <div class="kpi-trend up">
+                <i class="fa-solid fa-arrow-up"></i> +3 this week
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="kpi-card">
+            <div class="kpi-icon green"><i class="fa-solid fa-eye"></i></div>
+            <div class="kpi-body">
+              <div class="kpi-num" id="kpi-clicks">0</div>
+              <div class="kpi-label">Total Clicks</div>
+              <div class="kpi-trend up">
+                <i class="fa-solid fa-arrow-up"></i> +12% this week
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="kpi-card">
+            <div class="kpi-icon orange">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="kpi-body">
+              <div class="kpi-num" id="kpi-visitors">0</div>
+              <div class="kpi-label">Unique Visitors</div>
+              <div class="kpi-trend up">
+                <i class="fa-solid fa-arrow-up"></i> +8% this week
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="kpi-card">
+            <div class="kpi-icon purple">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="kpi-body">
+              <div class="kpi-num" id="kpi-ctr">0%</div>
+              <div class="kpi-label">Avg CTR</div>
+              <div class="kpi-trend down">
+                <i class="fa-solid fa-arrow-down"></i> -2% this week
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div class="chart-title">Clicks & Visitors (Last 7 Days)</div>
+              <div class="chart-tabs">
+                <button
+                  class="chart-tab active"
+                  onclick="switchChart('7d', this)"
+                >
+                  7D
+                </button>
+                <button class="chart-tab" onclick="switchChart('30d', this)">
+                  30D
+                </button>
+                <button class="chart-tab" onclick="switchChart('90d', this)">
+                  90D
+                </button>
+              </div>
+            </div>
+            <canvas id="trafficChart" height="120"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="chart-card h-100">
+            <div class="chart-title mb-3">Traffic by Device</div>
+            <canvas id="deviceChart" height="160"></canvas>
+            <div class="device-legend mt-3" id="deviceLegend"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Links & Geo -->
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="chart-card">
+            <div class="chart-title mb-3">Top Performing Links</div>
+            <div id="topLinksList"></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="chart-card">
+            <div class="chart-title mb-3">Top Countries</div>
+            <div id="geoList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LINKS SECTION ===== -->
+    <div id="section-links" class="d-none">
+      <div class="content-header d-flex align-items-center">
+        <div>
+          <h4 class="content-title">My Links</h4>
+          <span class="content-sub"
+            >Manage and monitor all your shortened URLs</span
+          >
+        </div>
+        <button
+          class="btn btn-snap-primary ms-auto"
+          data-bs-toggle="modal"
+          data-bs-target="#shortenModal"
+        >
+          <i class="fa-solid fa-plus me-1"></i> New Link
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="links-filters mb-3">
+        <div class="input-icon-wrap" style="max-width: 280px">
+          <i class="fa-solid fa-magnifying-glass input-icon"></i>
+          <input
+            type="text"
+            class="form-control snap-input ps-5 py-2"
+            placeholder="Search links…"
+            oninput="filterLinks(this.value)"
+          />
+        </div>
+        <select
+          class="form-select snap-input"
+          style="max-width: 160px"
+          onchange="filterByStatus(this.value)"
+        >
+          <option value="">All Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+        <select
+          class="form-select snap-input"
+          style="max-width: 160px"
+          onchange="sortLinks(this.value)"
+        >
+          <option value="date">Newest First</option>
+          <option value="clicks">Most Clicked</option>
+          <option value="name">Alphabetical</option>
+        </select>
+      </div>
+
+      <div class="links-table-wrap">
+        <table class="table snap-table">
+          <thead>
+            <tr>
+              <th>Short Link</th>
+              <th>Original URL</th>
+              <th>Clicks</th>
+              <th>Visitors</th>
+              <th>Created</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="linksTableBody"></tbody>
+        </table>
+        <div id="linksEmpty" class="empty-state d-none">
+          <i class="fa-solid fa-link-slash"></i>
+          <p>No links yet. Create your first one!</p>
+          <button
+            class="btn btn-snap-primary btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#shortenModal"
+          >
+            Create Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ANALYTICS SECTION ===== -->
+    <div id="section-analytics" class="d-none">
+      <div class="content-header">
+        <h4 class="content-title">Analytics</h4>
+        <span class="content-sub">Deep dive into your link performance</span>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-12">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div class="chart-title">Traffic Overview</div>
+              <div class="d-flex gap-2">
+                <select
+                  class="form-select snap-input form-select-sm"
+                  id="analyticsLinkFilter"
+                  onchange="updateAnalyticsChart()"
+                >
+                  <option value="all">All Links</option>
+                </select>
+                <div class="chart-tabs">
+                  <button
+                    class="chart-tab active"
+                    onclick="switchAnalyticsRange('7d', this)"
+                  >
+                    7D
+                  </button>
+                  <button
+                    class="chart-tab"
+                    onclick="switchAnalyticsRange('30d', this)"
+                  >
+                    30D
+                  </button>
+                  <button
+                    class="chart-tab"
+                    onclick="switchAnalyticsRange('90d', this)"
+                  >
+                    90D
+                  </button>
+                </div>
+              </div>
+            </div>
+            <canvas id="analyticsMainChart" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="chart-card text-center">
+            <div class="chart-title mb-2">Browsers</div>
+            <canvas id="browserChart" height="180"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="chart-card text-center">
+            <div class="chart-title mb-2">OS Breakdown</div>
+            <canvas id="osChart" height="180"></canvas>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <div class="chart-card">
+            <div class="chart-title mb-3">Referrer Sources</div>
+            <div id="referrerList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== QR SECTION ===== -->
+    <div id="section-qr" class="d-none">
+      <div class="content-header">
+        <h4 class="content-title">QR Codes</h4>
+        <span class="content-sub"
+          >Generate and download QR codes for your links</span
+        >
+      </div>
+      <div class="row g-4" id="qrGrid"></div>
+    </div>
+
+    <!-- ===== SETTINGS SECTION ===== -->
+    <div id="section-settings" class="d-none">
+      <div class="content-header">
+        <h4 class="content-title">Settings</h4>
+        <span class="content-sub">Manage your account preferences</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="chart-card">
+            <div class="chart-title mb-4">Profile Information</div>
+            <div id="settingsAlert" class="alert d-none small py-2"></div>
+            <div class="mb-3">
+              <label class="snap-label">Full Name</label>
+              <input type="text" id="setName" class="form-control snap-input" />
+            </div>
+            <div class="mb-3">
+              <label class="snap-label">Email</label>
+              <input
+                type="email"
+                id="setEmail"
+                class="form-control snap-input"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="snap-label">Username</label>
+              <input
+                type="text"
+                id="setUsername"
+                class="form-control snap-input"
+              />
+            </div>
+            <button class="btn btn-snap-primary" onclick="saveProfile()">
+              <i class="fa-solid fa-save me-2"></i>Save Changes
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="chart-card">
+            <div class="chart-title mb-4">Change Password</div>
+            <div class="mb-3">
+              <label class="snap-label">Current Password</label>
+              <input
+                type="password"
+                id="setPwCurrent"
+                class="form-control snap-input"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="snap-label">New Password</label>
+              <input
+                type="password"
+                id="setPwNew"
+                class="form-control snap-input"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="snap-label">Confirm New Password</label>
+              <input
+                type="password"
+                id="setPwConfirm"
+                class="form-control snap-input"
+              />
+            </div>
+            <button class="btn btn-snap-primary" onclick="changePassword()">
+              <i class="fa-solid fa-key me-2"></i>Update Password
+            </button>
+          </div>
+          <div class="chart-card mt-4">
+            <div class="chart-title mb-3">API Access</div>
+            <label class="snap-label">Your API Key</label>
+            <div class="input-icon-wrap">
+              <input
+                type="text"
+                class="form-control snap-input pe-5"
+                id="apiKeyField"
+                value="sk-snap-xxxxxxxxxxxxxxxx"
+                readonly
+              />
+              <button class="btn-toggle-pw" onclick="copyApiKey()">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+            <div class="mt-2 small text-muted">
+              Use this key to integrate SnapURL API into your apps.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /dash-content -->
+</div>
+<!-- /dash-main -->
+
+<!-- ===== SHORTEN MODAL ===== -->
+<div class="modal fade" id="shortenModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content snap-modal">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">
+          <i class="fa-solid fa-scissors me-2 accent"></i>Create Short Link
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body pt-0">
+        <div id="modalAlert" class="alert d-none small py-2"></div>
+        <div class="mb-3">
+          <label class="snap-label">Destination URL *</label>
+          <input
+            type="url"
+            id="modalLongUrl"
+            class="form-control snap-input"
+            placeholder="https://very-long-url.com/with/path?and=params"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label class="snap-label"
+            >Custom Alias <span class="text-muted">(optional)</span></label
+          >
+          <div class="input-group">
+            <span class="input-group-text snap-prefix">snp.ly/</span>
+            <input
+              type="text"
+              id="modalAlias"
+              class="form-control snap-input"
+              placeholder="my-brand"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="snap-label"
+            >Link Title <span class="text-muted">(optional)</span></label
+          >
+          <input
+            type="text"
+            id="modalTitle"
+            class="form-control snap-input"
+            placeholder="My Campaign Link"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="snap-label"
+            >Expiry Date <span class="text-muted">(optional)</span></label
+          >
+          <input type="date" id="modalExpiry" class="form-control snap-input" />
+        </div>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button class="btn btn-snap-outline" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button class="btn btn-snap-primary" onclick="createLink()">
+          <i class="fa-solid fa-scissors me-2"></i>Shorten It
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LINK DETAIL MODAL ===== -->
+<div class="modal fade" id="linkDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content snap-modal">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">
+          <i class="fa-solid fa-chart-bar me-2 accent"></i>Link Analytics
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body" id="linkDetailBody"></div>
+    </div>
+  </div>
+</div>

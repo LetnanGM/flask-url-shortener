@@ -1,0 +1,4 @@
+2026-03-28 11:26:37,738 - DEBUG - 🍯 HONEYPOT triggered: /admin | Method: GET | IP: 127.0.0.1| extra=asctime='2026-03-28 11:26:37,738'
+2026-03-28 11:26:37,748 - DEBUG - 📊 Honeypot hit #1 for fingerprint: 1392b8ffb30c79c8...| extra=asctime='2026-03-28 11:26:37,748'
+2026-03-28 11:56:46,728 - DEBUG - 🍯 HONEYPOT triggered: /admin | Method: GET | IP: 127.0.0.1| extra=asctime='2026-03-28 11:56:46,728'
+2026-03-28 11:56:46,728 - DEBUG - 📊 Honeypot hit #1 for fingerprint: 1392b8ffb30c79c8...| extra=asctime='2026-03-28 11:56:46,728'

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Short URL – Free URL Shortener</title>
+    {% include 'components/base_style/default.html' %}
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='natural/css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="login" class="auth-page">
+    <main>{% include 'pages/auth/login.html' %}</main>
+    <!-- Bootstrap 5 JS -->
+    <script
+      src="{{ url_for('static', filename='framework/bootstrap-5.3.3/js/bootstrap.bundle.min.js')}}"
+      defer
+    ></script>
+    <!-- CUSTOM SCRIPT-->
+    <script
+      type="module"
+      src="{{ url_for('static', filename='natural/js/loader.js') }}"
+    ></script>
+  </body>
+</html>

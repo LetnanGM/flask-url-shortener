@@ -1,0 +1,74 @@
+<!-- SIDEBAR -->
+<aside class="snap-sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="index.html" class="snap-logo">
+      <span class="logo-icon"><i class="fa-solid fa-link"></i></span>
+      Snap<span class="accent">URL</span>
+    </a>
+    <button class="btn sidebar-close d-lg-none" onclick="toggleSidebar()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav mt-4">
+    <div class="nav-section-label">Main</div>
+    <a href="dashboard.html" class="sidebar-link active" id="nav-dashboard">
+      <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span>
+    </a>
+    <a
+      href="dashboard.html#links"
+      class="sidebar-link"
+      id="nav-links"
+      onclick="showSection('links')"
+    >
+      <i class="fa-solid fa-link"></i><span>My Links</span>
+      <span class="nav-badge" id="navLinkCount">0</span>
+    </a>
+    <a
+      href="dashboard.html#analytics"
+      class="sidebar-link"
+      id="nav-analytics"
+      onclick="showSection('analytics')"
+    >
+      <i class="fa-solid fa-chart-line"></i><span>Analytics</span>
+    </a>
+    <a
+      href="dashboard.html#qr"
+      class="sidebar-link"
+      id="nav-qr"
+      onclick="showSection('qr')"
+    >
+      <i class="fa-solid fa-qrcode"></i><span>QR Codes</span>
+    </a>
+
+    <div class="nav-section-label mt-3">Account</div>
+    <a
+      href="dashboard.html#settings"
+      class="sidebar-link"
+      id="nav-settings"
+      onclick="showSection('settings')"
+    >
+      <i class="fa-solid fa-gear"></i><span>Settings</span>
+    </a>
+
+    <!-- Admin only -->
+    <div id="adminNav" class="d-none">
+      <div class="nav-section-label mt-3">Admin</div>
+      <a href="admin.html" class="sidebar-link" id="nav-admin">
+        <i class="fa-solid fa-shield-halved"></i><span>Admin Panel</span>
+        <span class="nav-badge admin-badge">Admin</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-user">
+    <div class="user-avatar" id="sidebarAvatar">U</div>
+    <div class="user-info">
+      <div class="user-name" id="sidebarName">Loading…</div>
+      <div class="user-role" id="sidebarRole">user</div>
+    </div>
+    <button class="btn btn-logout" onclick="handleLogout()" title="Logout">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+  </div>
+</aside>

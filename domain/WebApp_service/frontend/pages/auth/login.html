@@ -1,0 +1,136 @@
+<div class="auth-container">
+  <!-- LEFT PANEL -->
+  <div class="auth-left d-none d-lg-flex">
+    <div class="auth-left-content">
+      <a href="/" class="snap-logo mb-5 d-block">
+        <span class="logo-icon"><i class="fa-solid fa-link"></i></span>
+        Snap<span class="accent">URL</span>
+      </a>
+      <h2 class="auth-left-title">
+        Welcome back,<br /><span class="gradient-text">shortener.</span>
+      </h2>
+      <p class="auth-left-sub">
+        Your links, analytics, and custom aliases are waiting for you.
+      </p>
+      <div class="auth-features mt-5">
+        <div class="auth-feature-item">
+          <i class="fa-solid fa-check-circle"></i> Real-time click analytics
+        </div>
+        <div class="auth-feature-item">
+          <i class="fa-solid fa-check-circle"></i> Custom branded links
+        </div>
+        <div class="auth-feature-item">
+          <i class="fa-solid fa-check-circle"></i> QR code generation
+        </div>
+        <div class="auth-feature-item">
+          <i class="fa-solid fa-check-circle"></i> Team collaboration
+        </div>
+      </div>
+      <div class="auth-stat-mini mt-5">
+        <span id="left-stat-links">—</span> links shortened today
+      </div>
+    </div>
+    <div class="auth-left-orb orb-1"></div>
+    <div class="auth-left-orb orb-2"></div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-form-wrap">
+      <div class="auth-back mb-4">
+        <a href="/"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+      </div>
+      <h3 class="auth-form-title">Sign In</h3>
+      <p class="auth-form-sub">
+        Don't have an account?
+        <a href="{{ register_url }}" class="accent-link">Create one free</a>
+      </p>
+
+      <div id="loginAlert" class="alert d-none mt-3 py-2 small"></div>
+
+      <form id="loginForm" class="mt-4">
+        <div class="mb-3">
+          <label class="snap-label">Email Address</label>
+          <div class="input-icon-wrap">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input
+              type="email"
+              id="loginEmail"
+              class="form-control snap-input ps-5"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="snap-label d-flex justify-content-between">
+            Password
+            <a href="#" class="accent-link small">Forgot password?</a>
+          </label>
+          <div class="input-icon-wrap">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              type="password"
+              id="loginPassword"
+              class="form-control snap-input ps-5"
+              placeholder="••••••••"
+              required
+            />
+            <button
+              type="button"
+              class="btn-toggle-pw"
+              id="togglePasswd"
+              data-action="validateModule#togglePassword"
+              data-id="loginPassword"
+              data-btn="togglePasswd"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
+          <label class="form-check-label small" for="rememberMe"
+            >Keep me signed in</label
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn btn-snap-primary w-100 btn-lg"
+          id="loginBtn"
+        >
+          <span class="btn-text"
+            ><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Sign
+            In</span
+          >
+          <span class="btn-loading d-none"
+            ><i class="fa-solid fa-spinner fa-spin me-2"></i>Signing in...</span
+          >
+        </button>
+      </form>
+
+      <div class="auth-divider my-4"><span>or continue with</span></div>
+      <div class="d-flex gap-3">
+        <button
+          class="btn btn-social flex-grow-1"
+          onclick="socialLogin('google')"
+        >
+          <i class="fab fa-google me-2"></i>Google
+        </button>
+        <button
+          class="btn btn-social flex-grow-1"
+          onclick="socialLogin('github')"
+        >
+          <i class="fab fa-github me-2"></i>GitHub
+        </button>
+      </div>
+
+      <!-- Demo credentials hint -->
+      <div class="demo-hint mt-4">
+        <i class="fa-solid fa-circle-info me-1"></i>
+        <strong>Demo:</strong> admin@snapurl.io / <code>admin123</code> (Admin)
+        &nbsp;|&nbsp; user@snapurl.io / <code>user123</code> (User)
+      </div>
+    </div>
+  </div>
+</div>

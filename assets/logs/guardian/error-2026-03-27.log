@@ -1,0 +1,262 @@
+2026-03-27 14:03:42,284 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 36, in _setup
+    rm.register_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 15, in register_routes
+    self._register_main_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 21, in _register_main_routes
+    @self.app.route("/")
+     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+| extra=asctime='2026-03-27 14:03:42,284'
+2026-03-27 14:03:42,284 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 36, in _setup
+    rm.register_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 15, in register_routes
+    self._register_main_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 21, in _register_main_routes
+    @self.app.route("/")
+     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+| extra=asctime='2026-03-27 14:03:42,284'
+2026-03-27 14:04:29,935 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 36, in _setup
+    rm.register_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 15, in register_routes
+    self._register_main_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 21, in _register_main_routes
+    @self.app.route("/")
+     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+| extra=asctime='2026-03-27 14:04:29,935'
+2026-03-27 14:04:29,935 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 36, in _setup
+    rm.register_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 15, in register_routes
+    self._register_main_routes()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\route\routes.py", line 21, in _register_main_routes
+    @self.app.route("/")
+     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+| extra=asctime='2026-03-27 14:04:29,935'
+2026-03-27 14:05:00,094 - ERROR - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+components/verifier/roboto.html
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-03-27 14:05:00,094'
+2026-03-27 14:05:00,094 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+components/verifier/roboto.html
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-03-27 14:05:00,094'
+2026-03-27 14:19:48,731 - ERROR - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+login.html
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-03-27 14:19:48,731'
+2026-03-27 14:19:48,786 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+login.html
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-03-27 14:19:48,786'
+2026-03-27 14:28:45,151 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 11, in setup_me
+    self.route_register()
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'apiServiceShortener' object has no attribute 'route_register'
+| extra=asctime='2026-03-27 14:28:45,151'
+2026-03-27 14:28:45,151 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 11, in setup_me
+    self.route_register()
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'apiServiceShortener' object has no attribute 'route_register'
+| extra=asctime='2026-03-27 14:28:45,151'
+2026-03-27 14:29:01,065 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 11, in setup_me
+    self.main_route_register()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 26, in main_route_register
+    @self.app.route("/login")
+     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: login_page
+| extra=asctime='2026-03-27 14:29:01,065'
+2026-03-27 14:29:01,081 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 11, in setup_me
+    self.main_route_register()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 26, in main_route_register
+    @self.app.route("/login")
+     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 364, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\scaffold.py", line 44, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\flask\sansio\app.py", line 659, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: login_page
+| extra=asctime='2026-03-27 14:29:01,081'
+2026-03-27 14:29:49,477 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 12, in setup_me
+    self.api.route_register()
+    ^^^^^^^^
+AttributeError: 'apiServiceShortener' object has no attribute 'api'
+| extra=asctime='2026-03-27 14:29:49,477'
+2026-03-27 14:29:49,477 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 5, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 41, in validatingTypeArguments
+    self._load_with_app(object_type)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\share\support\ui\webapp\blueprint\blueprint.py", line 17, in _load_with_app
+    object_type(app=var.APP)
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\urlshortener\main.py", line 12, in setup_me
+    self.api.route_register()
+    ^^^^^^^^
+AttributeError: 'apiServiceShortener' object has no attribute 'api'
+| extra=asctime='2026-03-27 14:29:49,477'

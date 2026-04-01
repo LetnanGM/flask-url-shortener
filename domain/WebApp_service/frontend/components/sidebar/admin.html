@@ -1,0 +1,39 @@
+<!-- SIDEBAR (same structure as dashboard) -->
+<aside class="snap-sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="index.html" class="snap-logo">
+      <span class="logo-icon"><i class="fa-solid fa-link"></i></span>
+      Snap<span class="accent">URL</span>
+    </a>
+    <button class="btn sidebar-close d-lg-none" onclick="toggleSidebar()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="sidebar-nav mt-4">
+    <div class="nav-section-label">Main</div>
+    <a href="dashboard.html" class="sidebar-link"
+      ><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a
+    >
+    <a href="dashboard.html" class="sidebar-link"
+      ><i class="fa-solid fa-link"></i><span>My Links</span></a
+    >
+    <a href="dashboard.html" class="sidebar-link"
+      ><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a
+    >
+    <div class="nav-section-label mt-3">Admin</div>
+    <a href="admin.html" class="sidebar-link active"
+      ><i class="fa-solid fa-shield-halved"></i><span>Admin Panel</span
+      ><span class="nav-badge admin-badge">Admin</span></a
+    >
+  </nav>
+  <div class="sidebar-user">
+    <div class="user-avatar" id="sidebarAvatar">A</div>
+    <div class="user-info">
+      <div class="user-name" id="sidebarName">Admin</div>
+      <div class="user-role">admin</div>
+    </div>
+    <button class="btn btn-logout" onclick="handleLogout()" title="Logout">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+  </div>
+</aside>

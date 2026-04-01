@@ -1,0 +1,3 @@
+2026-03-28 13:58:13,014 - DEBUG - SQL Injection attempt detected: Admin#123| extra=ip='127.0.0.1', asctime='2026-03-28 13:58:13,014'
+2026-03-28 16:34:01,781 - DEBUG - SQL Injection attempt detected: 4oHq7vuT0X9YulDNRa| extra=ip='127.0.0.1', asctime='2026-03-28 16:34:01,781'
+2026-03-28 16:34:02,035 - DEBUG - SQL Injection attempt detected: p692dN0xc9OhgvvoHH| extra=ip='127.0.0.1', asctime='2026-03-28 16:34:02,035'

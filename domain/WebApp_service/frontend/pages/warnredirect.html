@@ -1,0 +1,24 @@
+<!-- Bootstrap 5 -->
+<link
+  href="{{ url_for('static', filename='framework/bootstrap-5.3.3/css/bootstrap.min.css') }}"
+  rel="stylesheet"
+/>
+
+<section class="hero mt-5">
+  <div class="container text-center animate__animated animate__fadeInDown">
+    <div class="hero-title mb-3">
+      You will be redirect to <span>{{ url_redirect }}</span>
+    </div>
+    <p class="hero-subtitle mb-5">
+      Are u sure want to continue redirect? you will leave this page.
+    </p>
+    <div class="row">
+      <div class="col">
+        <a class="btn btn-primary" href="{{ url_redirect }}"> Continue </a>
+      </div>
+      <div class="col">
+        <a class="btn btn-primary" href="/">Back</a>
+      </div>
+    </div>
+  </div>
+</section>

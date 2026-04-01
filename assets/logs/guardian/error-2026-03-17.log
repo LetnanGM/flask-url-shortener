@@ -1,0 +1,44 @@
+2026-03-17 16:51:37,691 - ERROR - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\main.py", line 4, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 43, in validatingTypeArguments
+    self._load_as_blank(object_type)
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 22, in _load_as_blank
+    object_type()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\domain\WebApp_service\plugin\external\test\main.py", line 5, in __init__
+    self.app: Flask = app
+                      ^^^
+NameError: name 'app' is not defined
+| extra=asctime='2026-03-17 16:51:37,691'
+2026-03-17 16:51:37,691 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\main.py", line 4, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\application\ui\webapp.py", line 22, in deploy
+    instance = FlaskServer(config=config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\server.py", line 17, in __init__
+    self._setup()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\server.py", line 35, in _setup
+    bpm.register_blueprints()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 68, in register_blueprints
+    bp_object.validatingTypeArguments(object_type=instance)
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 43, in validatingTypeArguments
+    self._load_as_blank(object_type)
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\share\support\ui\webapp\blueprint\blueprint.py", line 22, in _load_as_blank
+    object_type()
+  File "G:\user\u0_a257\Project\unpassed\.ditinggalkan\Altar_Sactum_Security\2.0.0\domain\WebApp_service\plugin\external\test\main.py", line 5, in __init__
+    self.app: Flask = app
+                      ^^^
+NameError: name 'app' is not defined
+| extra=asctime='2026-03-17 16:51:37,691'

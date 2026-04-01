@@ -1,0 +1,5 @@
+2026-03-17 16:18:43,318 - DEBUG - 🔐 New CSRF token generated for IP: 127.0.0.1| extra=ip='127.0.0.1', token='qWN0k-cO1x-QKqam...', asctime='2026-03-17 16:18:43,318'
+2026-03-17 16:23:21,781 - DEBUG - 🔐 New CSRF token generated for IP: 127.0.0.1| extra=ip='127.0.0.1', token='WhHuYX5Zx41OI0lw...', asctime='2026-03-17 16:23:21,781'
+2026-03-17 16:24:15,668 - DEBUG - 🔐 New CSRF token generated for IP: 127.0.0.1| extra=ip='127.0.0.1', token='EYpK5Egl54CTBMSs...', asctime='2026-03-17 16:24:15,668'
+2026-03-17 16:28:48,621 - DEBUG - 🔐 New CSRF token generated for IP: 127.0.0.1| extra=ip='127.0.0.1', token='6cHZrKJNsSSVNeIn...', asctime='2026-03-17 16:28:48,621'
+2026-03-17 17:12:47,332 - DEBUG - 🔐 New CSRF token generated for IP: 127.0.0.1| extra=ip='127.0.0.1', token='mKQ3hm0Hkt3je8td...', asctime='2026-03-17 17:12:47,332'
