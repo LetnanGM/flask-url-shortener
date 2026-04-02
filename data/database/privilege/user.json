@@ -10,5 +10,12 @@
         "email": "natadepekok@nusantara.id",
         "username": "natadepekok",
         "password": "$argon2i$v=19$m=65536,t=3,p=4$8CpVeJL8OAX5pza2OJGQoQ$CCg22O80xVX/FwSpqvwyk1btWusRlKs13KuIl6zCDyU"
+    },
+    "87b7e7f8-dc9c-4c4a-b3c6-4dc607abd489": {
+        "privilege": "adminr",
+        "name": "Administrator",
+        "email": "admin@snap.io",
+        "username": "administrator",
+        "password": "$argon2i$v=19$m=65536,t=3,p=4$/mClin4wG4oArxLM9rug2g$Ypp5OAIQPYrXmNOqTKRMknZldi2IMy0RBWHjVZw2lLY"
     }
 }

@@ -3,7 +3,6 @@ from types import EllipsisType
 from pydantic import BaseModel, field_validator
 from argon2 import hash_password, verify_password
 
-from application.bootstrap import init_db
 from share.support.generator.uuid import uid
 from share.shared.handler import validate_parameter
 from data.configuration.external.privilege.privilege import FILE_USER_DATABASE
@@ -51,6 +50,7 @@ class privilege:
         """
         privilege management and user server management.
         """
+        from application.bootstrap import init_db
         self._db = init_db(FILE_USER_DATABASE)
         self._load()
 
@@ -158,10 +158,10 @@ class privilege:
         """ """
         return self._db.read_values
     
-    def where_is_userid(self, username: str) -> str:
+    def where_is_userid(self, email: str) -> str:
         """ """
-        for user_id, value in self.query():
-            if username == value["username"]:
+        for user_id, value in self.query().items():
+            if email == value["email"]:
                 return user_id
         
         return False

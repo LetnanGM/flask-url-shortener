@@ -2203,8 +2203,8 @@
         "title": "uknown",
         "longUrl": "fRMwh7BGRx7rEqGrWX",
         "shortUrl": "http://127.0.0.1:8000/gKujfQ",
-        "clicks": 0,
-        "visitor": 0,
+        "clicks": 120,
+        "visitor": 580,
         "created": "2026-03-28",
         "status": "active",
         "expiry": null
@@ -2216,8 +2216,8 @@
         "title": "uknown",
         "longUrl": "CRyvNr4nZXdibPHBkm",
         "shortUrl": "http://127.0.0.1:8000/cm1Eug",
-        "clicks": 0,
-        "visitor": 0,
+        "clicks": 12,
+        "visitor": 14,
         "created": "2026-03-28",
         "status": "active",
         "expiry": null
@@ -7627,6 +7627,45 @@
         "clicks": 0,
         "visitor": 0,
         "created": "2026-03-31",
+        "status": "active",
+        "expiry": null
+    },
+    "151cc267-2b23-43f4-9a42-cdcebe4ae3e5": {
+        "id": "151cc267-2b23-43f4-9a42-cdcebe4ae3e5",
+        "userId": 123,
+        "alias": "RVX56E",
+        "title": "uknown",
+        "longUrl": "http://127.0.0.1:8000/login",
+        "shortUrl": null,
+        "clicks": 0,
+        "visitor": 0,
+        "created": "2026-04-02",
+        "status": "active",
+        "expiry": null
+    },
+    "6cddaac2-7775-4bcf-bf55-6e800fe12276": {
+        "id": "6cddaac2-7775-4bcf-bf55-6e800fe12276",
+        "userId": 123,
+        "alias": "FMxAj9",
+        "title": "uknown",
+        "longUrl": "http://127.0.0.1:8000/register",
+        "shortUrl": null,
+        "clicks": 1,
+        "visitor": 0,
+        "created": "2026-04-02",
+        "status": "active",
+        "expiry": null
+    },
+    "68ba6112-bd0a-40c7-bf5e-2c5ce968589a": {
+        "id": "68ba6112-bd0a-40c7-bf5e-2c5ce968589a",
+        "userId": 123,
+        "alias": "ekmXLr",
+        "title": "uknown",
+        "longUrl": "http://127.0.0.1:8000/register",
+        "shortUrl": null,
+        "clicks": 1,
+        "visitor": 0,
+        "created": "2026-04-02",
         "status": "active",
         "expiry": null
     }

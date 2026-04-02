@@ -29,6 +29,10 @@ class ShortenService(COperate):
 
     def _load(self):
         self._db.load_db()
+        
+    @property
+    def read_values(self):
+        return self._db.read_values
 
     @validate_parameter({"pack_id": str})
     def get_element(self, pack_id: str) -> Dict[str, str]:
@@ -43,8 +47,6 @@ class ShortenService(COperate):
         for pack_id, values in self._db.read_values.items():
             if values.get("alias") == shorten_id:
                 return pack_id
-        
-        
 
     @validate_parameter({"pack_id": str})
     def get_redirect(self, pack_id: str) -> str:
@@ -59,13 +61,14 @@ class ShortenService(COperate):
         data = self.get_element(pack_id)
         assert data is not None
 
-        data_userid = data.get("userId")
+        data_userid = str(data.get("userId"))
         if userId == data_userid:
             click = data.get("clicks")
             click += 1
             data["clicks"] = click
-            self.update_element(pack_id, data)
+            self._db.update_element(pack_id, data)
             return True
+        
         return False
 
     @validate_parameter({"pack_id": str, "userId": str})
@@ -79,7 +82,7 @@ class ShortenService(COperate):
             visitor = data.get("visitor")
             visitor += 1
             data["visitor"] = visitor
-            self.update_element(pack_id, data)
+            self._db.update_element(pack_id, data)
             return True
         return False
 
@@ -106,18 +109,25 @@ class ShortenService(COperate):
                 return len(self.read_values)
             case "click":
                 temp = []
+                value = 0
                 for object_1, object_2 in self.read_values.items():
-                    temp.append(object_2.get("click"))
+                    temp.append(object_2.get("clicks"))
                 
-                value = len(temp)
+                for click in temp:
+                    value += click
+                    
                 del temp
                 return value
+            
             case "visitor":
                 temp = []
+                value = 0
                 for object_1, object_2 in self.read_values.items():
                     temp.append(object_2.get("visitor"))
                 
-                value = len(temp)
+                for visitor in temp:
+                    value += visitor
+                    
                 del temp
                 return value
             

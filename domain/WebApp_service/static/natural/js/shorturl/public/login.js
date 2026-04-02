@@ -25,7 +25,7 @@ export const AuthModule = {
           window.location.href = "dashboard.html";
         }, 600);
       } else {
-        alert.showAlert("loginAlert", res.message || "Login failed.");
+        alert.showAlert("loginAlert", res.reason || "Login failed.");
       }
     });
   },

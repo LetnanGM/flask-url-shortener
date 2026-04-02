@@ -1,51 +1,11 @@
-from typing import Dict
-from functools import wraps
-from flask import Flask, request, jsonify, redirect, url_for, session, make_response
-from application.bootstrap import init_MS
-
-SESSIONS: Dict[str, str] = {}
-
-class IAuth:
-    def __init__(self):
-        self._ms = init_MS()
-        
-    @staticmethod
-    def is_session_authenticated(user_session: str) -> bool:
-        """ """
-        return True if user_session in session else False
-    
-    @staticmethod
-    def is_authenticated_as_what(username: str): 
-        """ """
-        return True if username in session else False
-    
-    def is_admin(self, username: str) -> bool:
-        if not self.is_authenticated_as_what(username=username):
-            return False
-        
-        user_id = self._ms.where_is_userid(username=username)
-        if self._ms.take_info_user(user_id).privilege is not "admin":
-            return False
-        
-        return True
-    
-def require_auth(privilege: str):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            resp = IAuth.is_session_authenticated(request.cookies.get("session"))
-            if not resp:
-                return "Unauthorzied", 401
-            
-            return func(*args, **kwargs)
-        return wrapper
-    return decorator
-            
+from flask import Flask, request, jsonify, redirect, url_for, make_response
+from application.bootstrap import init_MS, init_SESSION
             
 class Auth:
     def __init__(self) -> None:
         self._app = None
         self._priv = init_MS()
+        self._session = init_SESSION()
 
     def setup_me(self, app: Flask):
         """ """
@@ -60,19 +20,19 @@ class Auth:
             >>> method: ONLY POST
             >>> return: can be dict if error else redirect into dashboard if user else admin.
             
-            login must be have json data, and have column / query "username" and "password".
+            login must be have json data, and have column / query "email" and "password".
             """
-            from share.support.generator.uuid import uid
             redirect_url = {
-                "user": redirect(url_for("dashboard")),
-                "admin": redirect(url_for("admin")),
-                "owner": redirect(url_for("admin"))
+                "user": redirect(url_for("dashboard_page")),
+                "admin": redirect(url_for("admin_page")),
+                "owner": redirect(url_for("admin_page"))
             }
             
-            data = request.get_json()
-            status, response = self._priv.verify_user(
-                data["username"], data["password"]
-            )
+            data = request.get_json()            
+            email = data["email"]
+            password = data["password"]
+            
+            status, response = self._priv.verify_user(email, password)
             
             if not status and not response:
                 return {
@@ -80,14 +40,19 @@ class Auth:
                     "reason": "unknown server error."
                 }
 
-            user_id = self._priv.where_is_userid(data["username"])
-            privilege = self._priv.take_info_user(user_id)
+            user_id = self._priv.where_is_userid(email)
+            if not user_id:
+                return {
+                    "status": False,
+                    "reason": "email or password are wrong!"
+                }
+                
+            privilege = self._priv.take_info_user(user_id).privilege
             
-            builded_session = uid.token_uuid()
-            SESSIONS[builded_session] = user_id
+            status, session_id = self._session.add_session(user_id)
             
-            response = make_response(redirect(url_for(redirect_url[privilege.lower()])), 200)
-            response.set_cookie("session_id", builded_session, httponly=True, samesite="Lax")
+            response = make_response(redirect_url[privilege.lower()], 200)
+            response.set_cookie("session_id", session_id, httponly=True, samesite="Lax")
             
             return response
 

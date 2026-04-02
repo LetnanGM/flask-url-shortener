@@ -16,7 +16,7 @@ class internal:
             log.debug("'SecurityMiddleware' internal package registered!")
 
         # @Guardian_Crash must be always Online for making report crash app
-        bp_manager.register_queue(guardian.setup)
+        #bp_manager.register_queue(guardian.setup)
         log.debug("'Guardian_Crash' internal package registered!")
 
         return True
@@ -64,6 +64,7 @@ class external:
                             continue
                 except Exception as e:
                     print(f"[ERROR:PLUGIN]: > '{plugin}' have error '{e}'.")
+                    
             else:
                 print(f"[ERROR]: Cannot find folder plugin '{plugin}'")
 

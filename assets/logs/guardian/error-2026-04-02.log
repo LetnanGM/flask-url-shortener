@@ -1,0 +1,78 @@
+2026-04-02 12:20:08,717 - DEBUG - >>> UNHANDLED EXCEPTION CAUGHT (Server still running) <<<
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\plugin.py", line 57, in extract_setup_me
+    instance = obj()
+               ^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\external\auth\main.py", line 8, in __init__
+    self._session = init_SESSION()
+                    ^^^^^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\bootstrap.py", line 23, in init_SESSION
+    return MSession()
+           ^^^^^^^^^^
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\ManagementService\privilege\session.py", line 48, in __init__
+    session_id =  request.cookies.get("session_id")
+                  ^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311-32\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\main.py", line 23, in <module>
+    server.deploy()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\application\ui\webapp.py", line 14, in deploy
+    external.load_all()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\plugin.py", line 72, in load_all
+    external.extract_setup_me()
+  File "G:\user\u0_a257\Project\unpassed\url_shortener\url_shortener_v2.2.0\domain\WebApp_service\plugin\plugin.py", line 66, in extract_setup_me
+    print(f"[ERROR:PLUGIN]: > '{plugin}' have error '{e.with_traceback()}'.")
+                                                      ^^^^^^^^^^^^^^^^^^
+TypeError: BaseException.with_traceback() takes exactly one argument (0 given)
+| extra=asctime='2026-04-02 12:20:08,717'
+2026-04-02 12:24:00,764 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'ShortenService' object has no attribute 'read_values'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:24:00,764'
+2026-04-02 12:28:35,806 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+unsupported operand type(s) for +=: 'int' and 'NoneType'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:28:35,806'
+2026-04-02 12:35:49,932 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+Parameter pack_id must be str
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:35:49,932'
+2026-04-02 12:36:07,428 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+Parameter pack_id must be str
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:36:07,428'
+2026-04-02 12:48:00,974 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+Parameter userId must be str
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:48:00,974'
+2026-04-02 12:51:29,002 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'ShortenService' object has no attribute 'update_element'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:51:29,002'
+2026-04-02 12:58:09,155 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+Could not build url for endpoint 'dashboard'. Did you mean 'dashboard_page' instead?
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:58:09,155'
+2026-04-02 12:59:13,756 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+Could not build url for endpoint 'dashboard'. Did you mean 'dashboard_page' instead?
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 12:59:13,756'
+2026-04-02 13:00:49,307 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'username'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 13:00:49,307'
+2026-04-02 13:02:15,360 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'username'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 13:02:15,360'
+2026-04-02 13:04:40,924 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'username'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 13:04:40,924'
+2026-04-02 13:05:20,803 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+'username'
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 13:05:20,803'
+2026-04-02 13:08:11,297 - DEBUG - >>> FLASK ERROR, SERVER STILL RUNNING <<< 
+too many values to unpack (expected 2)
+>>> END OF REPORT ERROR <<<| extra=asctime='2026-04-02 13:08:11,297'

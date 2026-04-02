@@ -1,6 +1,5 @@
-from flask import Flask, request, jsonify, render_template, redirect, flash
-from application.bootstrap import init_shortener
-
+from flask import Flask, request, jsonify, render_template, redirect
+from application.bootstrap import init_shortener, require_auth
 
 class apiServiceShortener:
     def __init__(self) -> None:
@@ -40,18 +39,22 @@ class apiServiceShortener:
             )
 
     def main_route_register(self):
+        @require_auth()
         @self.app.route("/login")
         def login_page():
             return render_template("base/login.html")
 
+        @require_auth()
         @self.app.route("/register")
         def register_page():
             return render_template("base/register.html")
 
+        @require_auth("user")
         @self.app.route("/dashboard")
         def dashboard_page():
             return render_template("base/dashboard.html")
 
+        @require_auth("admin")
         @self.app.route("/admin")
         def admin_page():
             return render_template("base/admin.html")
@@ -65,6 +68,7 @@ class apiServiceShortener:
             return render_template("/privacy-policy")
 
     def api_route_register(self) -> None:
+        @require_auth()
         @self.app.route("/api/analytics/platform", methods=["GET"])
         def analytics_platform():
             return jsonify(
@@ -79,6 +83,7 @@ class apiServiceShortener:
                 }
             )
 
+        @require_auth()
         @self.app.route("/api/links/public", methods=["POST"])
         def pub_shorturl():
             a = request.get_json()
@@ -87,11 +92,16 @@ class apiServiceShortener:
 
         @self.app.route("/<code>", methods=["GET"])
         def redirect_link(code) -> None:
-            # sanitize code must be str and other sanitize handled by custom protection library
             slug = str(code)
             
             pack_id = self.shortener.find_Packid_With_Shorten_ID(shorten_id=slug)
+            if not pack_id:
+                return "Unknown slug", 404
+            
             data = self.shortener.get_redirect(pack_id=pack_id)
+            self.shortener.add_click(pack_id, "123")
+            self.shortener.add_visitor(pack_id, "123")
+            
             return redirect(data)
 
         @self.app.route("/docs")
