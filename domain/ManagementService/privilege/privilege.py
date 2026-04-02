@@ -1,4 +1,5 @@
-from typing import Tuple, Dict, Union
+from typing import Tuple, Dict, Union, List, Any
+from types import EllipsisType
 from pydantic import BaseModel, field_validator
 from argon2 import hash_password, verify_password
 
@@ -9,10 +10,19 @@ from data.configuration.external.privilege.privilege import FILE_USER_DATABASE
 
 
 class credentials(BaseModel):
+    privilege: str
     name: str
     email: str
     username: str
     password: Union[str, bytes]
+    
+    @field_validator("privilege")
+    def is_privilege_exists(cls, privilege: str): 
+        privileges: List[str] = ["admin", "owner", "user"]
+        if privilege in privileges:
+            return privilege
+        
+        return "user"
 
     @field_validator("password")
     def password_hash(cls, password: str | bytes):
@@ -28,6 +38,7 @@ class credentials(BaseModel):
     @property
     def to_json(self):
         return {
+            "privilege": self.privilege,
             "name": self.name,
             "email": self.email,
             "username": self.username,
@@ -79,19 +90,13 @@ class privilege:
         database = self._db.read_values
         for user_id, cred in database.items():
             if cred.get("username") == username:
-                return (
-                    self.verify_pw(
-                        hashed_pw=cred.get("password").encode(),
-                        raw_password=password.encode(),
-                    ),
-                    "User Verified",
-                )
+                return self.verify_pw(hashed_pw=cred.get("password").encode(), raw_password=password.encode()), "User Verified",
 
         return False, "User are not in our record."
 
     @validate_parameter({"username": str, "password": str})
     def add_new_user(
-        self, name: str, email: str, username: str, password: str
+        self, privilege: str, name: str, email: str, username: str, password: str
     ) -> Tuple[bool, str]:
         """
         build new credentials user and registering to database.
@@ -103,7 +108,7 @@ class privilege:
         Return:
             Double return, first boolean for status and last is string for reason.
         """
-        cred = credentials(name=name, email=email, username=username, password=password)
+        cred = credentials(privilege=privilege, name=name, email=email, username=username, password=password)
         data = cred.to_json
 
         response = self._db.create_element(
@@ -142,6 +147,24 @@ class privilege:
         remove user credentials
         """
         return self._db.delete_element(name_element=user_id)
+    
+    @validate_parameter({"user_id": str})
+    def take_info_user(self, user_id: str) -> Dict[str, str]:
+        """ """
+        data = self._db.read_values[user_id]
+        return credentials(**data)
 
+    def query(self, condition: EllipsisType | None = ..., response: EllipsisType | None = ...) -> Any:
+        """ """
+        return self._db.read_values
+    
+    def where_is_userid(self, username: str) -> str:
+        """ """
+        for user_id, value in self.query():
+            if username == value["username"]:
+                return user_id
+        
+        return False
+    
     def len_all_user(self) -> int:
         return len(self._db.read_values)

@@ -52,7 +52,7 @@ class apiServiceShortener:
         def dashboard_page():
             return render_template("base/dashboard.html")
 
-        @self.app.route("/vebya_theorem")
+        @self.app.route("/admin")
         def admin_page():
             return render_template("base/admin.html")
 
