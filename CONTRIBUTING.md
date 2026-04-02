@@ -1,41 +1,84 @@
-# Contributing Guidelines
+# Contributing Guide 🤝
 
-Thank you for your interest in contributing! 🙌
+Welcome! We're excited you want to contribute!
 
-This project is beginner-friendly, but it follows a clear architectural direction. Please read the guidelines below before submitting a pull request.
+## For Complete Beginners
 
-## 🧠 Project Direction
+Don't worry if you've never contributed to open source before.
+This guide will walk you through everything.
 
-This project focuses on:
+### Step 1: Setup (5 minutes)
 
-- Custom-built system
+```bash
+# Fork on GitHub (click button on top right)
+# Clone to your computer
+git clone https://github.com/YOUR_USERNAME/flask-url-shortener.git
+cd flask-url-shortener
 
-- Minimal external dependencies
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-- Readable and educational code
+# Install
+pip install -r requirements.txt
+```
 
-## 🚫 Important Rule
+### Step 2: Pick An Issue
 
-Avoid adding external Flask authentication/session plugins such as:
+1. Go to [Issues](https://github.com/LetnanGM/flask-url-shortener/issues)
+2. Filter by "good-first-issue"
+3. Comment: "I want to work on this"
+4. Wait for approval
+5. Start coding!
 
-- Flask-Login
+### Step 3: Code & Test
 
-- Flask-Session
+```bash
+# Make your changes
+git checkout -b fix/your-fix-name
 
-These tools are great, but they are intentionally not used here to preserve the learning purpose of the project.
+# Test locally
+python main.py
 
-## ✅ What You Can Contribute
+# When happy, commit
+git add .
+git commit -m "fix: What you fixed"
+```
 
-- Bug fixes
+### Step 4: Submit
 
-- Code improvements
+```bash
+git push origin fix/your-fix-name
+```
 
-- Better validation
+Then on GitHub, create Pull Request.
 
-- Documentation improvements
+### Step 5: Review Process
 
-- Refactoring for readability
+We'll review and might ask questions.
+That's normal! Don't worry.
+We're here to help. 🙌
 
-## ❌ What to Avoid
+## Types of Contributions We Love
 
-- Replacing core systems with external
+- 🐛 Bug fixes
+- 📚 Documentation
+- ✨ New features
+- 🎨 UI improvements
+- ❓ Questions (helps improve docs)
+
+## Code Style
+
+- Python: Follow PEP 8
+- Comments: Explain WHY, not WHAT
+- Functions: Add docstrings
+- Tests: Include tests for new features
+
+## Questions?
+
+Ask in the issue or pull request.
+We don't bite! 😊
+
+---
+
+Happy contributing!
